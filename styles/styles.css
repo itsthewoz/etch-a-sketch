@@ -1,0 +1,16 @@
+body {
+  background-color: lightgray;
+}
+
+.grid {
+  display: grid;
+  width: 600px;
+  height: 600px;
+  background-color: white;
+}
+
+.square {
+  width: 100%;
+  height: auto;
+  background-color: rgb(241, 241, 241);
+}

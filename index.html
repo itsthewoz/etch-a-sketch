@@ -10,6 +10,23 @@
   </head>
   <body>
     <div class="grid"></div>
+    <div class="slidecontainer">
+      <form name="rangeform" oninput="rangevalue.value = size.valueAsNumber">
+        <input
+          type="range"
+          name="size"
+          min="16"
+          max="100"
+          value="54"
+          step="4"
+        />
+        <output name="rangevalue" for="size">60</output>
+        <label for="size"></label>
+      </form>
+    </div>
+    <button class="monochrome">Monochrome</button>
+    <button class="rainbow">Rainbow</button>
+    <button class="eraser">Eraser</button>
     <button class="reset">Reset</button>
   </body>
 </html>
