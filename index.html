@@ -9,31 +9,36 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="grid"></div>
-    <div class="slidecontainer">
-      <form name="rangeform" oninput="rangevalue.value = size.valueAsNumber">
-        <input
-          type="range"
-          name="size"
-          id="range"
-          min="16"
-          max="100"
-          value="60"
-          step="4"
-        />
-        <output name="rangevalue" for="size">60</output>
-      </form>
+    <div class="wrapleft">
+      <h1>Etch-A-Sketch</h1>
+      <div class="slidecontainer">
+        <form name="rangeform" oninput="rangevalue.value = size.valueAsNumber">
+          <label for="size" id="labrange">Grid Size</label>
+          <input
+            type="range"
+            name="size"
+            id="range"
+            min="16"
+            max="100"
+            value="60"
+            step="4"
+          />
+          <output name="rangevalue" for="size" id="sizenum">60</output>
+        </form>
+      </div>
+      <div class="colorpicker">
+        <label for="selectColor" id="labcol">Pick a Color</label>
+        <input id="selectColor" type="color" value="#000000" />
+      </div>
+      <div class="buttons">
+        <button class="monochrome">Monochrome</button>
+        <button class="rainbow">Rainbow</button>
+        <button class="eraser">Eraser</button>
+        <button class="reset">Reset</button>
+      </div>
     </div>
-    <div class="colorpicker">
-      <!-- <form name="colorform" oninput="colorvalue.value = selectcolor.value"> -->
-      <label for="selectColor">Pick a Color!</label>
-      <input id="selectColor" type="color" value="#000000" />
-      <!-- <output name="colorvalue" for="selectcolor"></output> -->
-      <!-- </form> -->
+    <div class="wrap">
+      <div class="grid"></div>
     </div>
-    <button class="monochrome">Monochrome</button>
-    <button class="rainbow">Rainbow</button>
-    <button class="eraser">Eraser</button>
-    <button class="reset">Reset</button>
   </body>
 </html>

@@ -1,9 +1,8 @@
-// TODO: attatch slider to currentSize
 // TODO: color picker
 // TODO: style everything
 
 // default values for reset and load
-const gridSize = 16;
+const gridSize = 60;
 const gridMode = "monochrome";
 const squareColor = "#000000";
 
@@ -19,13 +18,14 @@ function setSize(newSize) {
 
 function setMode(newMode) {
   currentMode = newMode;
+  if (newMode === "eraser") {
+    // selectColor.setAttribute("value", "#f1f1f1");
+    selectColor.value = "#f1f1f1";
+  } else if (newMode === "monochrome") {
+    selectColor.value = currentColor;
+  }
 }
 
-function setColor(newColor) {
-  currentColor = newColor;
-}
-
-// const square = document.querySelectorAll(".square"); currently not needed
 const grid = document.querySelector(".grid");
 const rainbow = document.querySelector(".rainbow");
 const monochrome = document.querySelector(".monochrome");
@@ -34,13 +34,9 @@ const reset = document.querySelector(".reset");
 const selectColor = document.querySelector("#selectColor");
 const range = document.querySelector("#range");
 
-range.addEventListener("input", function () {
-  watchRange;
-});
+range.addEventListener("input", watchRange);
 
-selectColor.addEventListener("input", function () {
-  watchColor;
-});
+selectColor.addEventListener("input", watchColor);
 
 rainbow.addEventListener("click", function () {
   setMode("rainbow");
@@ -79,11 +75,13 @@ function changeColor(e) {
 
 function watchRange(e) {
   currentSize = e.target.value;
+  grid.innerHTML = "";
   createGrid(currentSize);
 }
 // color picker
 function watchColor(e) {
   currentColor = e.target.value;
+  currentMode = "monochrome";
 }
 
 function defaultGrid() {
@@ -97,7 +95,6 @@ function randomRgb() {
   let b = Math.round(Math.random() * (255 - 0) + 0);
   return `rgb(${r}, ${g}, ${b})`;
 }
-// on mouseover of .square call randomRGP() and append it to the backgraound of class .square
 
 console.log(randomRgb());
 console.log(currentSize);
@@ -106,6 +103,3 @@ console.log(currentMode);
 window.onload = () => {
   createGrid(currentSize);
 };
-
-// on hover add color or toggle class
-// add a reset function
