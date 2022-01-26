@@ -5,7 +5,7 @@
 // default values for reset and load
 const gridSize = 16;
 const gridMode = "monochrome";
-const squareColor = "black";
+const squareColor = "#000000";
 
 // vars for like values
 let currentSize = gridSize;
@@ -31,6 +31,16 @@ const rainbow = document.querySelector(".rainbow");
 const monochrome = document.querySelector(".monochrome");
 const eraser = document.querySelector(".eraser");
 const reset = document.querySelector(".reset");
+const selectColor = document.querySelector("#selectColor");
+const range = document.querySelector("#range");
+
+range.addEventListener("input", function () {
+  watchRange;
+});
+
+selectColor.addEventListener("input", function () {
+  watchColor;
+});
 
 rainbow.addEventListener("click", function () {
   setMode("rainbow");
@@ -65,6 +75,15 @@ function changeColor(e) {
   } else if (currentMode === "eraser") {
     e.target.style.backgroundColor = "rgb(241, 241, 241)";
   }
+}
+
+function watchRange(e) {
+  currentSize = e.target.value;
+  createGrid(currentSize);
+}
+// color picker
+function watchColor(e) {
+  currentColor = e.target.value;
 }
 
 function defaultGrid() {
